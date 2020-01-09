@@ -19,7 +19,7 @@ public class Launcher {
 		try {
 			quiz = new Quiz.Builder().setDifficulty(Difficulty.valueOf(dif)).build();
 		} catch (Exception e) {
-			System.out.println("Error occured, kindly enter one of the keyword displayed above.");
+			System.out.println("Incorrect input, kindly enter one of the keyword displayed above.");
 			return;
 		}
 		List<Question> ll = quiz.getQuestions();
