@@ -13,9 +13,15 @@ public class Launcher {
 		// TODO Auto-generated method stub
 		Scanner b = new Scanner(System.in);
 		System.out.println("Welcome Guest");
-		System.out.print("Enter the difficulty level for Quiz (EASY, NORMAL, HARD: ");
+		System.out.print("Enter the difficulty level for Quiz (EASY, NORMAL, HARD): ");
 		String dif = b.next();
-		Quiz quiz = new Quiz.Builder().setDifficulty(Difficulty.valueOf(dif)).build();
+		Quiz quiz;
+		try {
+			quiz = new Quiz.Builder().setDifficulty(Difficulty.valueOf(dif)).build();
+		} catch (Exception e) {
+			System.out.println("Error occured, kindly enter one of the keyword displayed above.");
+			return;
+		}
 		List<Question> ll = quiz.getQuestions();
 		int answers[] = new int[ll.size()];
 		int i=0;
